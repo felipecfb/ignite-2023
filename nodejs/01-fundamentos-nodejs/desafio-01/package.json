@@ -1,0 +1,14 @@
+{
+  "name": "desafio-01",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "csv-generate": "^4.2.2",
+    "csv-parse": "^5.3.6"
+  }
+}
