@@ -16,6 +16,21 @@ export async function usersRoutes(app: FastifyInstance) {
     return reply.status(200).send(users)
   })
 
+  app.get('/:id', async (request, reply) => {
+    const getUserParamsSchema = z.object({
+      id: z.string().uuid(),
+    })
+
+    const { id } = getUserParamsSchema.parse(request.params)
+
+    const users = await knex('users')
+      .where('id', id)
+      .select('id', 'email', 'created_at', 'updated_at')
+      .first()
+
+    return reply.status(200).send(users)
+  })
+
   app.post('/', async (request, reply) => {
     const createUserBodySchema = z.object({
       email: z.string(),
