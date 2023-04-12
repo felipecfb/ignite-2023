@@ -2,7 +2,7 @@ import { FastifyInstance } from 'fastify'
 import { z } from 'zod'
 import { randomUUID } from 'node:crypto'
 import { knex } from '../database'
-import { hashPassword } from '../utils/bcrypt/hashPassword'
+import { hashPassword } from '../utils/bcrypt'
 
 export async function usersRoutes(app: FastifyInstance) {
   app.get('/', async (request, reply) => {
