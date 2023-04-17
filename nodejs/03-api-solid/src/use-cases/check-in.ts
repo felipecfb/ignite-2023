@@ -31,8 +31,6 @@ export class CheckInUseCase {
   }: ICheckInUseCaseRequest): Promise<ICheckInUseCaseResponse> {
     const gym = await this.gymsRepository.findById(gymId)
 
-    console.log(gym)
-
     if (!gym) {
       throw new ResourceNotFoundError()
     }
@@ -49,8 +47,6 @@ export class CheckInUseCase {
     )
 
     const MAX_DISTANCE_IN_KILOMETERS = 0.1
-
-    console.log(distance)
 
     if (distance > MAX_DISTANCE_IN_KILOMETERS) {
       throw new MaxDistanceError()
