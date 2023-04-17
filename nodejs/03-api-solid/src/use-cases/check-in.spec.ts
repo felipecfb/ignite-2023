@@ -19,8 +19,8 @@ describe('Check-in Use Case', () => {
       title: 'JavaScript Gym',
       description: '',
       phone: '',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
+      latitude: new Decimal(-23.0002058),
+      longitude: new Decimal(-43.43557),
     })
 
     vi.useFakeTimers()
@@ -81,5 +81,27 @@ describe('Check-in Use Case', () => {
     })
 
     expect(checkIn.id).toEqual(expect.any(String))
+  })
+
+  // -22.9766595,-43.4070312
+
+  it('should not be able to check in on distant gym', async () => {
+    gymsRepository.gyms.push({
+      id: 'gym-01',
+      title: 'JavaScript Gym',
+      description: '',
+      phone: '',
+      latitude: new Decimal(-22.9766595),
+      longitude: new Decimal(-43.4070312),
+    })
+
+    await expect(() =>
+      sut.execute({
+        gymId: 'gym-02',
+        userId: 'user-01',
+        userLatitude: -23.0002058,
+        userLongitude: -43.43557,
+      }),
+    ).rejects.toBeInstanceOf(Error)
   })
 })
