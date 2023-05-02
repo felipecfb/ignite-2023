@@ -15,11 +15,7 @@ jobs:
           node-version: 18
           cache: 'yarn'
 
-<<<<<<< HEAD
       - run: yarn install --frozen-lockfile
-=======
-      - run: yarn ci
->>>>>>> d2471ab0072d158717fb829ab864960bf65872e0
 
       - run: yarn run test
         env:
