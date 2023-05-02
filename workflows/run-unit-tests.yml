@@ -1,0 +1,27 @@
+name: Run Unit Tests
+
+on: [push]
+
+jobs:
+  run-unit-tests:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      name: Setup node
+        - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+        working-directory: ./nodejs/03-api-solid
+
+      - run: npm ci
+
+      - name: Run Unit Tests
+        run: yarn test
+        working-directory: ./nodejs/03-api-solid
+        env:
+          NODE_ENV: 'test'
+          JWT_SECRET: 'jwt-secret'
