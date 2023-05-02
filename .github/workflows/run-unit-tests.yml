@@ -10,12 +10,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      name: Setup node
-        - uses: actions/setup-node@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
+          working-directory: ./nodejs/03-api-solid
           node-version: 18
           cache: 'npm'
-        working-directory: ./nodejs/03-api-solid
+        
 
       - run: npm ci
 
