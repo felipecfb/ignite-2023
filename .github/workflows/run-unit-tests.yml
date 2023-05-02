@@ -10,6 +10,13 @@ jobs:
       matrix: { dir: ['nodejs/03-api-solid'] }
     
     steps:
+      - name: Enter to folder
+        with:
+          script: |
+            cd nodejs
+            cd 03-api-solid
+        
+
       - name: Checkout
         uses: actions/checkout@v3
 
