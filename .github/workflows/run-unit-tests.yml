@@ -11,10 +11,7 @@ jobs:
     
     steps:
       - name: Enter to folder
-        with:
-          script: |
-            cd nodejs
-            cd 03-api-solid
+        run: cd nodejs
         
 
       - name: Checkout
