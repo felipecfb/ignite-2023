@@ -6,14 +6,8 @@ jobs:
   run-unit-tests:
     name: Run Unit Tests
     runs-on: ubuntu-latest
-    strategy:
-      matrix: { dir: ['nodejs/03-api-solid'] }
     
     steps:
-      - name: Enter to folder
-        run: cd nodejs
-        
-
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -22,7 +16,11 @@ jobs:
         with:
           node-version: 18
           cache: 'yarn'
-        
-      - run: yarn ci
+          
+      - name: Run CI
+        working-directory: ./nodejs/03-api-solid
+        run: yarn ci
 
-      - run: yarn test
+      - name: Run Unit Test
+        working-directory: ./nodejs/03-api-solid
+        run: yarn test
