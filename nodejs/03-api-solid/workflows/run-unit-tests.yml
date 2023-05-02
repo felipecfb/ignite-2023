@@ -6,8 +6,9 @@ jobs:
   run-unit-tests:
     name: Run Unit Tests
     runs-on: ubuntu-latest
-
+    
     steps:
+<<<<<<< HEAD:nodejs/03-api-solid/workflows/run-unit-tests.yml
       - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
@@ -22,3 +23,24 @@ jobs:
         env:
           NODE_ENV: 'test'
           JWT_SECRET: 'jwt-secret'
+=======
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          working-directory: ./nodejs/03-api-solid
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+          working-directory: ./nodejs/03-api-solid
+          
+      - name: Run CI
+        working-directory: ./nodejs/03-api-solid
+        run: yarn ci
+
+      - name: Run Unit Test
+        working-directory: ./nodejs/03-api-solid
+        run: yarn test
+>>>>>>> dd2db476346dcca62ae7b58253b9675b6b46344e:.github/workflows/run-unit-tests.yml
