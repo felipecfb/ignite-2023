@@ -1,9 +1,6 @@
 name: Run Unit Tests
 
-on:
-  push:
-    branches:
-      - api-gym
+on: [push]
 
 jobs:
   run-unit-tests:
@@ -13,18 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      name: Setup node
-        - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'npm'
-        working-directory: ./nodejs/03-api-solid
+          cache: 'yarn'
 
-      - run: npm ci
+      - run: yarn install --frozen-lockfile
 
-      - name: Run Unit Tests
-        run: yarn test
-        working-directory: ./nodejs/03-api-solid
+      - run: yarn run test
         env:
           NODE_ENV: 'test'
           JWT_SECRET: 'jwt-secret'
