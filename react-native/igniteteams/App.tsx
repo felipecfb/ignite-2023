@@ -2,7 +2,7 @@ import { useFonts } from "expo-font";
 import { Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto";
 import { ThemeProvider } from "styled-components/native";
 
-import { Groups } from "@screens/Groups";
+import { Groups } from '@screens/Groups';
 
 import { Loading } from "@components/Loading";
 
