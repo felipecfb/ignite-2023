@@ -23,6 +23,5 @@ import { Env } from 'src/env'
       },
     }),
   ],
-  controllers: [AuthenticateController],
 })
 export class AuthModule {}
