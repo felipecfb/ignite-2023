@@ -27,3 +27,8 @@ Content-Type: application/json
 POST {{baseURL}}/questions
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
+
+{
+  "title": "Nova pergunta",
+  "content": "Counteúdo da pergunta"
+}
