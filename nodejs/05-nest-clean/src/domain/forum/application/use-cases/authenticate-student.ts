@@ -36,8 +36,8 @@ export class AuthenticateStudentUseCase {
     }
 
     const isPasswordValid = await this.hashComparer.compare(
-      student.password,
       password,
+      student.password,
     )
 
     if (!isPasswordValid) {
