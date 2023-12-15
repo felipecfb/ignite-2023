@@ -8,6 +8,7 @@ import {
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from '@/infra/database/prisma/prisma.service'
 import { PrismaQuestionMapper } from '@/infra/database/prisma/mappers/prisma-question-mapper'
+import { Slug } from '@/domain/forum/enterprise/entities/value-objects/slug'
 
 export function makeQuestion(
   override: Partial<QuestionProps> = {},
@@ -17,6 +18,7 @@ export function makeQuestion(
     {
       authorId: new UniqueEntityID(),
       title: faker.lorem.sentence(),
+      slug: Slug.create(faker.lorem.sentence()),
       content: faker.lorem.text(),
       ...override,
     },
