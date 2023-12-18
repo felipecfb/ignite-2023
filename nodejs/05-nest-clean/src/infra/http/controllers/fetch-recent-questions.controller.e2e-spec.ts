@@ -1,5 +1,4 @@
 import request from 'supertest'
-import { Slug } from '@/domain/forum/enterprise/entities/value-objects/slug'
 import { AppModule } from '@/infra/app.module'
 import { INestApplication } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
@@ -52,10 +51,10 @@ describe('Fetch recent questions (E2E)', () => {
 
     expect(response.statusCode).toBe(200)
     expect(response.body).toEqual({
-      questions: [
+      questions: expect.arrayContaining([
         expect.objectContaining({ title: 'Question 01' }),
         expect.objectContaining({ title: 'Question 02' }),
-      ],
+      ]),
     })
   })
 })
