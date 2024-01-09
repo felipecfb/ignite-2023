@@ -48,8 +48,6 @@ describe('Comment on answer (E2E)', () => {
       authorId: user.id,
     })
 
-    console.log(answer)
-
     const answerId = answer.id.toString()
 
     const response = await request(app.getHttpServer())
