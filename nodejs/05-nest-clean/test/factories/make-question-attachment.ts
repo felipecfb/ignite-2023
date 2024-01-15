@@ -33,11 +33,11 @@ export class QuestionAttachmentFactory {
 
     await this.prisma.attachment.update({
       where: {
-        id: questionAttachment.attachmentId.toString()
+        id: questionAttachment.attachmentId.toString(),
       },
       data: {
-        questionId: questionAttachment.questionId.toString()
-      }
+        questionId: questionAttachment.questionId.toString(),
+      },
     })
 
     return questionAttachment
