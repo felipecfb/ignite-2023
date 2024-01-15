@@ -1,5 +1,4 @@
 import request from 'supertest'
-import { Slug } from '@/domain/forum/enterprise/entities/value-objects/slug'
 import { AppModule } from '@/infra/app.module'
 import { DatabaseModule } from '@/infra/database/database.module'
 import { INestApplication } from '@nestjs/common'
@@ -37,5 +36,8 @@ describe('Upload attachment (E2E)', () => {
       .attach('file', './test/e2e/sample-upload.png')
 
     expect(response.statusCode).toBe(201)
+    expect(response.body).toEqual({
+      attachmentId: expect.any(String),
+    })
   })
 })
