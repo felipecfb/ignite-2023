@@ -5,6 +5,7 @@
   "rules": {
     "no-useless-constructor": "off",
     "no-new": "off",
-    "no-useless-return": "off"
+    "no-useless-return": "off",
+    "prettier/prettier": "off"
   }
 }
