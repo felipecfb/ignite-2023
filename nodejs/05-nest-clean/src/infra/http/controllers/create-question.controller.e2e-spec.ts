@@ -45,10 +45,7 @@ describe('Create question (E2E)', () => {
       .send({
         title: 'New question',
         content: 'Question content',
-        attachments: [
-          attachment1.id.toString(),
-          attachment2.id.toString()
-        ]
+        attachments: [attachment1.id.toString(), attachment2.id.toString()],
       })
 
     expect(response.statusCode).toBe(201)
@@ -63,8 +60,8 @@ describe('Create question (E2E)', () => {
 
     const attachmentsOnDatabase = await prisma.attachment.findMany({
       where: {
-        questionId: questionOnDatabase?.id
-      }
+        questionId: questionOnDatabase?.id,
+      },
     })
 
     expect(attachmentsOnDatabase).toHaveLength(2)
