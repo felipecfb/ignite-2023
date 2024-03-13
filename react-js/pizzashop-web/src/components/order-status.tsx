@@ -28,7 +28,7 @@ export function OrderStatus({ status }: OrderStatusProps) {
         <span className="h-2 w-2 rounded-full bg-rose-400"></span>
       )}
 
-      {status === 'delivered' && (
+      {status === 'delivering' && (
         <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
       )}
 
