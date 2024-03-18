@@ -10,7 +10,5 @@ export async function getMonthCanceledOrdersAmount() {
     '/metrics/month-canceled-orders-amount',
   )
 
-  console.log(response.data)
-
   return response.data
 }
